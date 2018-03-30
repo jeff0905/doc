@@ -15,7 +15,7 @@
     - @welab-xlib-component和早期saas项目设计采用了css-module技术.
     
 saas项目已经去掉了css-module, 根据各种开源的项目的实现选择了大家基本上遵守的规范来定义组件的样式。
->由:
+> 由:
         >> 所有的组件样式都有一个命名空间,将命名空间前缀在组件的根节点属性,
         `.saas-button`, `.saas-input` 
         >> . 命名空间设计成只需要修改一处，所有的组件都可以改变,例如后续可能
@@ -55,6 +55,7 @@ saas项目已经去掉了css-module, 根据各种开源的项目的实现选择�
 
 <img src="./after.png" width="300" height="400" />
 
+<br>
 
 这里可以看到我们划分出了5个模块,
 - $core,   `@saas-core`模块,
@@ -62,6 +63,7 @@ saas项目已经去掉了css-module, 根据各种开源的项目的实现选择�
 - application, `@saas-application` 进件模块
 - loan,        `@saas-loan`贷后模块
 - aggreate     `@saas-aggreate`聚合模块(绑卡，auth, pay)
+<img src="https://processon.com/chart_image/5a59a261e4b0c090523f10c0.png" />
 
 并借鉴后端的微服务来重新设计模块， 将上述5个模块提升为一级目录，并且相互独立开。除了`$core`模块之外，其他四个模块没有依赖关系。
 每个模块都可以在将来重构为独立部署，独立开发。因为模块的界限已经相对清晰起来，业务模块只依赖`$core`模块。
